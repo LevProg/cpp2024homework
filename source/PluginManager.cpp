@@ -1,4 +1,4 @@
-#include "PluginManager.h"
+ï»¿#include "PluginManager.h"
 
 std::vector<Plugin> PluginManager::loadPlugins(const std::string& directory) {
     std::vector<Plugin> plugins;
@@ -12,12 +12,12 @@ std::vector<Plugin> PluginManager::loadPlugins(const std::string& directory) {
                     plugins.push_back({ lib, func });
                 }
                 else {
-                    std::cerr << "Îøèáêà: ôóíêöèÿ pluginFunc íå íàéäåíà â " << entry.path().string() << std::endl;
+                    std::cerr << "ÐžÑˆÐ¸Ð±ÐºÐ°: Ñ„ÑƒÐ½ÐºÑ†Ð¸Ñ pluginFunc Ð½Ðµ Ð½Ð°Ð¹Ð´ÐµÐ½Ð° Ð² " << entry.path().string() << std::endl;
                     FreeLibrary(lib);
                 }
             }
             else {
-                std::cerr << "Îøèáêà çàãðóçêè DLL: " << entry.path().string() << std::endl;
+                std::cerr << "ÐžÑˆÐ¸Ð±ÐºÐ° Ð·Ð°Ð³Ñ€ÑƒÐ·ÐºÐ¸ DLL: " << entry.path().string() << std::endl;
             }
         }
     }

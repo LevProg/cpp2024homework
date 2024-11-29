@@ -1,4 +1,4 @@
-#include "Parser.h"
+п»ї#include "Parser.h"
 
 Parser::Parser(Lexer lexer, const std::vector<Plugin>& plugins)
     : lexer(std::move(lexer)), plugins(plugins) {
@@ -7,7 +7,7 @@ Parser::Parser(Lexer lexer, const std::vector<Plugin>& plugins)
 
 void Parser::consume(enum class TokenType expectedType) {
     if (currentToken.type != expectedType) {
-        throw std::runtime_error("Ожидался токен типа " + std::to_string(static_cast<int>(expectedType)));
+        throw std::runtime_error("РћР¶РёРґР°Р»СЃСЏ С‚РѕРєРµРЅ С‚РёРїР° " + std::to_string(static_cast<int>(expectedType)));
     }
     currentToken = lexer.getNextToken();
 }
@@ -26,7 +26,7 @@ double Parser::evalFunc() {
         }
     }
 
-    throw std::runtime_error("Функция " + funcName + " не найдена в плагинах");
+    throw std::runtime_error("Р¤СѓРЅРєС†РёСЏ " + funcName + " РЅРµ РЅР°Р№РґРµРЅР° РІ РїР»Р°РіРёРЅР°С…");
 }
 
 double Parser::parseUnit() {
@@ -47,7 +47,7 @@ double Parser::parseUnit() {
         return value;
     }
 
-    throw std::runtime_error("Недопустимый токен в parseUnit");
+    throw std::runtime_error("РќРµРґРѕРїСѓСЃС‚РёРјС‹Р№ С‚РѕРєРµРЅ РІ parseUnit");
 }
 
 double Parser::parsePower() {
@@ -70,7 +70,7 @@ double Parser::parseTerm() {
         else{
             double divisor = parsePower();
             if (divisor == 0) {
-                throw std::runtime_error("Деление на ноль");
+                throw std::runtime_error("Р”РµР»РµРЅРёРµ РЅР° РЅРѕР»СЊ");
             }
             result /= divisor;
         }

@@ -1,4 +1,4 @@
-#include "Lexer.h"
+п»ї#include "Lexer.h"
 #include <cctype>
 
 Lexer::Lexer(const std::string& expr) : expression(expr), pos(0) {
@@ -51,7 +51,7 @@ Token Lexer::getNextToken() {
         for (const auto token : AllOperators) {
             if (static_cast<char>(token) == prevChar) return Token{ token };
         }
-        throw std::runtime_error(std::string("Неизвестный символ: ") + prevChar);
+        throw std::runtime_error(std::string("РќРµРёР·РІРµСЃС‚РЅС‹Р№ СЃРёРјРІРѕР»: ") + prevChar);
     }
     return Token{ TokenType::END };
 }
